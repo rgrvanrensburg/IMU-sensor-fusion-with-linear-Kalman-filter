@@ -1,0 +1,36 @@
+Description:
+
+Setting up UDP connection (wired or wireless) to iphone sensor app from Windows-pc and monitoring sensor data in Matlab:
+by Roger van Rensburg
+
+Date: 29-03-2015
+
+1.) Download 'Sensor Stream' app for IOS
+2.) On your PC, disable Windows firewall.
+3.) Goto cmd prompt, check ipconfig -all and netstat -a for active connections.
+4.) Connect iphone to PC by enabling the wi-fi connection and personal hotspot.
+5.) Find wireless IP address of PC wireless adapter by typing ipconfig -all in cmd.
+6.) The wireless LAN adapter will display the IP address and subnet mask, 
+    Eg. IPv4: 172.20.10.1 and SM: 255.255.255.0
+7.) Check wireless adapter connectivity by pinging the wireless connection above.
+8.) Check for active comms by checking netsat -a.
+9.) This will help in the setup of the IP address of the 'Sensor Stream'.
+10.) In 'Sensor Stream', enter the same IP address of the PC.
+     Eg. 172.20.10.1 and enter a port number.
+11.) Open "Socket Sniffer" and record the local and report port adresses with their respective port numbers.
+    
+    E.g.
+
+    Local address Eg. 172.20.10.1 (The local address is UDP of the simulink code)
+    Remote adress 172.20.10.11 (The remote address is the wireless connection)
+    Local port 58783 (may be different)
+    Remote port 58960 (may be different)
+
+10.) Open and run Simulink model. 
+11.) Send IMU data from 'Sensor Stream'
+12.) Run Simulink model.
+13.) If a connection is setup correctly, the IMU data will display on the scopes.
+14.) Monitor unfilterde and kalman angle from Scope.
+15.) Adjust R and P covariances accordingly.
+
+16.) Setup finished.
